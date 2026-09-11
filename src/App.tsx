@@ -1,14 +1,26 @@
+import { Suspense } from "react";
 import "./App.css";
 import Footer from "./components/Footer/Footer";
 import Hero from "./components/Hero/Hero";
 import Navbar from "./components/Navbar/Navbar";
+import type TechnologyType from "./Type/Type";
+import Technologies from "./components/Technologies/Technologies";
 
 function App() {
+  const handleTechnology = async (): Promise<TechnologyType[]> => {
+    const res = await fetch("/public/data/Technologie.json");
+    const data = await res.json();
+    return data;
+  };
+
   return (
     <>
       <Navbar />
-      <Hero/>
-      <Footer/>
+      <Hero />
+      <Suspense fallback={<h1>Data Loading........</h1>}>
+        <Technologies handleTechnology={handleTechnology()}></Technologies>
+      </Suspense>
+      <Footer />
     </>
   );
 }

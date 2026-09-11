@@ -3,7 +3,7 @@ export default function Hero() {
   return (
     <>
       <div className="hero min-h-screen container mx-auto  ">
-        <div className="hero-content flex-col lg:flex-row-reverse gap-60">
+        <div className="hero-content flex-col lg:flex-row-reverse gap-40">
           <img alt="Tailwind CSS hero component" src={hero} />
           <div>
             <h1 className="text-5xl font-bold">
@@ -19,7 +19,7 @@ export default function Hero() {
               <button className="btn btn-secondary brand-gradient ">
                 Explore Technologies
               </button>
-              <button className="btn px-10 ">Learn More</button>
+              <button className="btn btn-outline px-10 ">Learn More</button>
             </div>
           </div>
         </div>
