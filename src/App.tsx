@@ -8,7 +8,6 @@ import Technologies from "./components/Technologies/Technologies";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-
 function App() {
   const handleTechnology = async (): Promise<TechnologyType[]> => {
     const res = await fetch("/public/data/Technologie.json");
@@ -20,11 +19,15 @@ function App() {
     <>
       <Navbar />
       <Hero />
-      <Suspense fallback={<h1>Data Loading........</h1>}>
+      <Suspense
+        fallback={
+          <span className="loading loading-spinner text-error flex mx-auto loading-xl"></span>
+        }
+      >
         <Technologies handleTechnology={handleTechnology()}></Technologies>
       </Suspense>
       <Footer />
-      <ToastContainer/>
+      <ToastContainer />
     </>
   );
 }

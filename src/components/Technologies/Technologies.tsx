@@ -28,26 +28,30 @@ export default function Technologies({ handleTechnology }: TechnologiesProps) {
   // Remove one
   const handleRemove = (id: string) => {
     setStack(stack.filter((item) => item.id !== id));
+    const technology = technologys.find((info) => info.id === id);
+    if (technology) {
+      toast.info(`${technology.name} Remove from your stack`);
+    }
   };
   // Remove All
   const handleRemoveAll = () => {
     setStack([]);
-    toast.info("All technologies removed from your stack");
+    toast.dark("All technologies removed from your stack");
   };
 
   return (
     <>
-      <div className="container mx-auto space-y-2 mb-5">
-        <h1 className="text-3xl font-bold">
+      <div className="container mx-auto space-y-2 px-4 pb-6">
+        <h1 className="lg:text-3xl text-2xl font-bold">
           Explore the <span className="brand-gradient-text">Technologies</span>
         </h1>
-        <p>Pick one technology per category to build your ideal stack.</p>
+        <p className="text-sm  ">Pick one technology per category to build your ideal stack.</p>
       </div>
 
       {/* --------------------- */}
 
-      <div className="flex justify-between container mx-auto gap-2">
-        <div className="grid grid-cols-3 gap-3 ">
+      <div className="lg:container lg:mx-auto flex flex-col gap-8 lg:flex-row lg:gap-6">
+        <div className="lg:grid grid-cols-3 gap-3 px-4 lg:px-0 space-y-4 ">
           {technologys.map((technology) => (
             <TechnologeCard
               key={technology.id}

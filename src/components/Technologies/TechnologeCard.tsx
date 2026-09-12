@@ -16,7 +16,7 @@ export default function TechnologeCard({
     <>
       <div className="w-full max-w-md rounded-2xl border border-slate-200 bg-white p-6 shadow-sm container mx-auto">
         <div className="flex items-start justify-between">
-          <img src={technology.icon} alt={technology.name} className="h-12 " />
+          <img src={technology.icon} alt={technology.name} className="h-12 w-10" />
           <span className="rounded-full border border-green-200 bg-green-50 px-4 py-2 text-sm font-medium text-green-600">
             {technology.badge}
           </span>
@@ -32,16 +32,19 @@ export default function TechnologeCard({
           </span>
           <span className="text-slate-500">{technology.difficulty}</span>
           <span className="flex items-center gap-1 text-slate-700">
-            <span className="text-yellow-400"><FaStar /></span>
+            <span className="text-yellow-400">
+              <FaStar />
+            </span>
             {technology.rating}
           </span>
         </div>
         <button
           onClick={() => handleAddStack(technology)}
-          // disabled={isAdded}
-          className="mt-5 w-full rounded-lg bg-[#0A0F1D] py-3 text-sm font-medium text-white cursor-pointer"
+          className={`mt-5 w-full rounded-lg py-3 text-sm font-medium text-white cursor-pointer ${
+            isAdded ? "bg-pink-400" : "bg-[#0A0F1D]"
+          }`}
         >
-          {isAdded ? "Added to stack" : "Add to Stack"}
+          {isAdded ? "✓ Added to Stack" : "Add to Stack"}
         </button>
       </div>
     </>

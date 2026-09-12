@@ -34,6 +34,29 @@ See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rule
 
  Stack-Builder-App
  <<----------------->>
+ description
  A modern and responsive Dev Stack Builder website where developers can explore different technologies and create their own personalized technology stack.
 
- 
+ -------------
+ Technologies Used
+ React.js
+ TypeScript
+ Tailwind CSS
+ DaisyUI
+ React-Toastify
+ React-Icon
+ JSON
+ Vite
+--------------
+ Features
+1.Build Your Own Stack
+
+Explore different technologies and add your favorite technologies to your personal development stack.
+
+2. Smart Notifications
+
+React-Toastify provides instant feedback when technologies are added, removed, duplicated, or when the entire stack is cleared.
+
+3. 📱 Fully Responsive
+
+The website is designed to work smoothly across mobile and desktop devices.

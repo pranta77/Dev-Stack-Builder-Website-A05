@@ -2,7 +2,7 @@ import logo from "../Navbar/logo-text.png";
 export default function Footer() {
   return (
     <>
-      <footer className="footer sm:footer-horizontal bg-base-200 text-base-content p-10 container mx-auto mt-25 ">
+      <footer className="footer sm:footer-horizontal bg-base-200 text-base-content p-10 container mx-auto mt-5">
         <nav>
           <img className="w-30" src={logo} alt="" />
           <p>

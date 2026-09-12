@@ -14,8 +14,8 @@ export default function Stack({
 }: StackProps) {
   return (
     <>
-      <aside className="lg:col-span-1">
-        <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm w-60">
+      <aside className="lg:col-span-1 px-4 lg:px-0 ">
+        <div className="w-full max-w-md mx-auto rounded-2xl border border-slate-200 bg-white p-5 shadow-sm lg:w-60 l">
           <h2 className="text-lg font-bold text-slate-900">Your Stack</h2>
           <p className="mt-1 text-xs font-bold text-slate-400">
             {stack.length}
@@ -62,7 +62,6 @@ export default function Stack({
               <button
                 onClick={handleRemoveAll}
                 className="btn btn-outline btn-error flex mx-auto px-8 my-10"
-                
               >
                 Remove All
               </button>
