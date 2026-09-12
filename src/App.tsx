@@ -5,6 +5,9 @@ import Hero from "./components/Hero/Hero";
 import Navbar from "./components/Navbar/Navbar";
 import type TechnologyType from "./Type/Type";
 import Technologies from "./components/Technologies/Technologies";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 function App() {
   const handleTechnology = async (): Promise<TechnologyType[]> => {
@@ -21,6 +24,7 @@ function App() {
         <Technologies handleTechnology={handleTechnology()}></Technologies>
       </Suspense>
       <Footer />
+      <ToastContainer/>
     </>
   );
 }

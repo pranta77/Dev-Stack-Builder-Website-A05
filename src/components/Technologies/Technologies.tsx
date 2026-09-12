@@ -2,6 +2,7 @@ import { use, useState } from "react";
 import type TechnologyType from "../../Type/Type";
 import TechnologeCard from "./TechnologeCard";
 import Stack from "../StackCard/Stack";
+import { toast } from "react-toastify";
 
 export interface TechnologiesProps {
   handleTechnology: Promise<TechnologyType[]>;
@@ -10,14 +11,18 @@ export interface TechnologiesProps {
 export default function Technologies({ handleTechnology }: TechnologiesProps) {
   const technologys = use(handleTechnology);
   //   console.log(users);
+
   const [stack, setStack] = useState<TechnologyType[]>([]);
 
+  // Add & Added Cart
   const handleAddStack = (technology: TechnologyType) => {
     const alreadyExists = stack.some((item) => item.id === technology.id);
     if (alreadyExists) {
-      return alert(`${technology.name} is already in your stack`);
+      // return alert;
+      return toast.warning(`${technology.name} is already in your stack`);
     } else {
       setStack([...stack, technology]);
+      toast.success(`${technology.name} added to your stack!`);
     }
   };
   // Remove one
@@ -27,6 +32,7 @@ export default function Technologies({ handleTechnology }: TechnologiesProps) {
   // Remove All
   const handleRemoveAll = () => {
     setStack([]);
+    toast.info("All technologies removed from your stack");
   };
 
   return (

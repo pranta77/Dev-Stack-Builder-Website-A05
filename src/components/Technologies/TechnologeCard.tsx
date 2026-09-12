@@ -1,3 +1,4 @@
+import { FaStar } from "react-icons/fa";
 import type TechnologyType from "../../Type/Type";
 
 export interface TechnologeCardProps {
@@ -31,13 +32,13 @@ export default function TechnologeCard({
           </span>
           <span className="text-slate-500">{technology.difficulty}</span>
           <span className="flex items-center gap-1 text-slate-700">
-            <span className="text-yellow-400 text-2xl">*</span>
+            <span className="text-yellow-400"><FaStar /></span>
             {technology.rating}
           </span>
         </div>
         <button
           onClick={() => handleAddStack(technology)}
-          disabled={isAdded}
+          // disabled={isAdded}
           className="mt-5 w-full rounded-lg bg-[#0A0F1D] py-3 text-sm font-medium text-white cursor-pointer"
         >
           {isAdded ? "Added to stack" : "Add to Stack"}
