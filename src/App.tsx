@@ -10,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const handleTechnology = async (): Promise<TechnologyType[]> => {
-    const res = await fetch("/public/data/Technologie.json");
+    const res = await fetch("data/Technologie.json");
     const data = await res.json();
     return data;
   };
