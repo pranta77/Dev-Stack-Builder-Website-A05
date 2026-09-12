@@ -21,7 +21,13 @@ export default function Technologies({ handleTechnology }: TechnologiesProps) {
     }
   };
   // Remove one
-  
+  const handleRemove = (id: string) => {
+    setStack(stack.filter((item) => item.id !== id));
+  };
+  // Remove All
+  const handleRemoveAll = () => {
+    setStack([]);
+  };
 
   return (
     <>
@@ -46,7 +52,11 @@ export default function Technologies({ handleTechnology }: TechnologiesProps) {
           ))}
         </div>
         {/* ------------------------- */}
-        <Stack />
+        <Stack
+          stack={stack}
+          handleRemove={handleRemove}
+          handleRemoveAll={handleRemoveAll}
+        />
       </div>
     </>
   );
