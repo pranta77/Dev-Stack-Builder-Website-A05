@@ -1,6 +1,7 @@
-import { use } from "react";
+import { use, useState } from "react";
 import type TechnologyType from "../../Type/Type";
 import TechnologeCard from "./TechnologeCard";
+import Stack from "../StackCard/Stack";
 
 export interface TechnologiesProps {
   handleTechnology: Promise<TechnologyType[]>;
@@ -9,6 +10,18 @@ export interface TechnologiesProps {
 export default function Technologies({ handleTechnology }: TechnologiesProps) {
   const technologys = use(handleTechnology);
   //   console.log(users);
+  const [stack, setStack] = useState<TechnologyType[]>([]);
+
+  const handleAddStack = (technology: TechnologyType) => {
+    const alreadyExists = stack.some((item) => item.id === technology.id);
+    if (alreadyExists) {
+      return alert(`${technology.name} is already in your stack`);
+    } else {
+      setStack([...stack, technology]);
+    }
+  };
+  // Remove one
+  
 
   return (
     <>
@@ -18,27 +31,22 @@ export default function Technologies({ handleTechnology }: TechnologiesProps) {
         </h1>
         <p>Pick one technology per category to build your ideal stack.</p>
       </div>
+
+      {/* --------------------- */}
+
       <div className="flex justify-between container mx-auto gap-2">
         <div className="grid grid-cols-3 gap-3 ">
-          {technologys.map((technology, index) => (
-            <TechnologeCard key={index} technology={technology}></TechnologeCard>
+          {technologys.map((technology) => (
+            <TechnologeCard
+              key={technology.id}
+              technology={technology}
+              handleAddStack={handleAddStack}
+              isAdded={stack.some((item) => item.id === technology.id)}
+            ></TechnologeCard>
           ))}
         </div>
-         <aside className="lg:col-span-1">
-          <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm w-60">
-            <h2 className="text-lg font-bold text-slate-900">
-              Your Stack
-            </h2>
-            <p className="mt-1 text-xs text-slate-400">
-              No technologies selected yet.
-            </p>
-            <div className="mt-4 flex min-h-24 items-center justify-center rounded-xl border border-dashed border-slate-200">
-              <p className="text-xs text-slate-400">
-                Your stack is empty.
-              </p>
-            </div>
-          </div>
-        </aside>
+        {/* ------------------------- */}
+        <Stack />
       </div>
     </>
   );

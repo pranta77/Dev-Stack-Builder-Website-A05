@@ -2,9 +2,15 @@ import type TechnologyType from "../../Type/Type";
 
 export interface TechnologeCardProps {
   technology: TechnologyType;
+  handleAddStack: (technology: TechnologyType) => void;
+  isAdded: boolean;
 }
 
-export default function TechnologeCard({ technology }: TechnologeCardProps) {
+export default function TechnologeCard({
+  technology,
+  handleAddStack,
+  isAdded,
+}: TechnologeCardProps) {
   return (
     <>
       <div className="w-full max-w-md rounded-2xl border border-slate-200 bg-white p-6 shadow-sm container mx-auto">
@@ -29,11 +35,14 @@ export default function TechnologeCard({ technology }: TechnologeCardProps) {
             {technology.rating}
           </span>
         </div>
-        <button className="mt-5 w-full rounded-lg bg-[#0A0F1D] py-3 text-sm font-medium text-white cursor-pointer">
-          Add to Stack
+        <button
+          onClick={() => handleAddStack(technology)}
+          disabled={isAdded}
+          className="mt-5 w-full rounded-lg bg-[#0A0F1D] py-3 text-sm font-medium text-white cursor-pointer"
+        >
+          {isAdded ? "Added to stack" : "Add to Stack"}
         </button>
       </div>
-      
     </>
   );
 }

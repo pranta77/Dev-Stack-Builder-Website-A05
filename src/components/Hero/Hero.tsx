@@ -2,8 +2,8 @@ import hero from "./banner-stack.png";
 export default function Hero() {
   return (
     <>
-      <div className="hero min-h-screen container mx-auto  ">
-        <div className="hero-content flex-col lg:flex-row-reverse gap-40">
+      <div className="hero min-h-screen container mx-auto">
+        <div className="hero-content flex-col lg:flex-row-reverse lg:gap-40">
           <img alt="Tailwind CSS hero component" src={hero} />
           <div>
             <h1 className="text-5xl font-bold">
@@ -15,7 +15,7 @@ export default function Hero() {
               <br /> compare them side by side, and put together the stack that
               fits your <br /> next project.
             </p>
-            <div className="space-x-4">
+            <div className="space-x-4 mb-10">
               <button className="btn btn-secondary brand-gradient ">
                 Explore Technologies
               </button>
